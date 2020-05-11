@@ -48,3 +48,9 @@ ps.invoke()
   ps.dispose();
 });
 ```
+## NOTE
+node-powershell uses [child_process.spawn()](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options) to launch powershell. This function is not available client side, so when using node-powershell in a client-side library (Vue, Angular etc.), you will receive the following error:
+```
+TypeError: spawn is not a function
+```
+You must use node-powershell either in electron or on your server-side code.
